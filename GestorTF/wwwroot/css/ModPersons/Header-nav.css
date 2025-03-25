@@ -1,0 +1,19 @@
+﻿.height-nav-header {
+    height: 70px;
+}
+
+    .item-header-p img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .item-header-p svg {
+        fill: #6A4CFF;
+    }
+
+    .item-header-p span {
+        font-size: 16px;
+        color: #6A4CFF;
+        font-weight: bold;
+    }
+    

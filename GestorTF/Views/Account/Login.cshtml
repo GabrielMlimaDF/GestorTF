@@ -1,0 +1,63 @@
+﻿@using GestorTF.Models.ViewModels.AuthUserViewModel
+@model AuthLoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/ModPersons/Login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+
+    <div class="container">
+        <div class="login-box">
+            <img src="~/img/favicon.svg" alt="Logo" class="logo">
+            <form asp-action="Login" asp-controller="Account" method="post">
+                @Html.AntiForgeryToken()
+                <div class="input-group">
+                    <input asp-for="Email" type="email" placeholder="E-mail" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" asp-for="Password" placeholder="Senha" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                <button type="submit" class="btn">Entrar</button>
+                <p class="register-text">Ainda não possui uma conta? <a href="#">Cadastre-se agora!</a></p>
+                <p class="social-text">Ou acesse usando suas redes sociais:</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </form>
+        </div>
+        <div class="info-box">
+            <h2>Uma poderosa plataforma para controlar seus chamados</h2>
+            <p>Automatize processos e ganhe tempo para fazer outras coisas no seu dia a dia!</p>
+            <button class="btn-gradient">Saiba mais</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
