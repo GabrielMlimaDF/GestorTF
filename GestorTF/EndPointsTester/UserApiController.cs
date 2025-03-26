@@ -13,7 +13,6 @@ namespace GestorTF.EndPointsTester
     [ApiController]
     public class UserApiController : ControllerBase
     {
-
         private readonly AuthService _authService;
         private readonly ContextApp _context;
         private readonly UserService _userService;
@@ -24,15 +23,17 @@ namespace GestorTF.EndPointsTester
             _context = context;
             _userService = userService;
         }
+
         [HttpGet("/v1/user/users")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> GetUser()
         {
-            var userList = await _context.Users.ToArrayAsync();
-            return Ok(userList);
+            var userList = await _userService.GetUserAsync();
+            return (userList);
         }
+
         [HttpPost("/v1/user/registers")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Register([FromBody] UserRegisterDto model)
         {
             if (await _context.Users.AnyAsync(u => u.Email == model.Email))
@@ -55,12 +56,9 @@ namespace GestorTF.EndPointsTester
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            await _userService.AddUserRoleAsync(user, "User");
+            await _userService.AddUserRoleAsync(user);
 
             return Ok("Usuário registrado com sucesso!");
         }
     }
-
-
 }
-

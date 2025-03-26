@@ -9,10 +9,8 @@ using System.Security.Claims;
 
 namespace GestorTF.Controllers
 {
-    
     public class HomeController : Controller
     {
-        
         private readonly ILogger<HomeController> _logger;
         private readonly ContextApp _context;
 
@@ -22,7 +20,7 @@ namespace GestorTF.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Index()
         {
             // Obtém o ID do usuário autenticado a partir do token JWT

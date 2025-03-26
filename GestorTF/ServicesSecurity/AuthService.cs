@@ -1,12 +1,14 @@
 ﻿using GestorTF.Models.ViewModels.AuthUserViewModel;
 using GestoTF2.Data;
 using GestoTF2.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GestorTF.ServicesSecurity
 {
@@ -20,6 +22,7 @@ namespace GestorTF.ServicesSecurity
             _context = contextApp;
             _configuration = configuration;
         }
+
         public (string Hash, string Salt) HashPassword(string password)
         {
             using var hmac = new HMACSHA256();
@@ -27,12 +30,12 @@ namespace GestorTF.ServicesSecurity
             string hash = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password)));
             return (hash, salt);
         }
+
         public async Task<string?> Authenticate(AuthLoginViewModel model)
         {
             var user = await _context.Users
        .Where(u => u.Email == model.Email)
        .FirstOrDefaultAsync();
-
 
             if (user == null || !VerifyPassword(model.Password, user.Password, user.Salt))
                 return null;
@@ -43,7 +46,7 @@ namespace GestorTF.ServicesSecurity
         .ToListAsync();
             return GenerateJwtToken(user, roles);
         }
-    
+
         private bool VerifyPassword(string password, string storedHash, string salt)
         {
             using var hmac = new HMACSHA256(Convert.FromBase64String(salt));
@@ -74,6 +77,5 @@ namespace GestorTF.ServicesSecurity
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
     }
 }

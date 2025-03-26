@@ -5,17 +5,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 
 namespace GestorTF.Controllers
 {
     public class AccountController : Controller
     {
         private readonly AuthService _authService;
+
         public AccountController(AuthService authService)
         {
             _authService = authService;
         }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -27,6 +28,7 @@ namespace GestorTF.Controllers
 
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AuthLoginViewModel model)
@@ -45,6 +47,7 @@ namespace GestorTF.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
