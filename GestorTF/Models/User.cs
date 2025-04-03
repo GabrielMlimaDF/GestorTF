@@ -20,6 +20,7 @@ namespace GestoTF2.Models
 
         public Role Role { get; set; } = null!;
     }
+
  
 }
 

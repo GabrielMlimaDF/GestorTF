@@ -3,7 +3,6 @@ using GestorTF.ServicesSecurity;
 using GestoTF2.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -17,7 +16,12 @@ builder.Services.AddDbContext<ContextApp>(op => op.UseSqlServer(connectionString
 // Registra os serviços no container de injeção de dependência
 builder.Services.AddScoped<AuthService>(); // Registra o AuthService
 builder.Services.AddScoped<ContextApp>();   // Registra o ContextApp (DbContext)
-builder.Services.AddScoped<UserService>();  // Registra o UserService
+builder.Services.AddScoped<UserServices>();
+//suprimir modelstate
+builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
 //jwt
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
