@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var username = ViewData["NomeCompleto"] as string;
+}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
@@ -21,7 +24,7 @@
                 <!-- Example single danger button -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        👤@ViewBag.UserName
+                        <span id="nome-usuario">👤</span>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -38,20 +41,31 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container d-flex gap-lg-5">
             &copy; 2025 - GestorTF
             <div>
-                <span>Usuario: @ViewBag.UserName***</span>
+                <span id="nome-usuario-footer"></span>
             </div>
         </div>
     </footer>
+    <script>
+        var nomeCompleto = '@ViewData["NomeCompleto"]';
+        if (nomeCompleto) 
+                     localStorage.setItem('NomeCompleto', nomeCompleto);
+         const nomeCompletoArmazenado = localStorage.getItem('NomeCompleto');
+         var dataAtual = '@DateTime.Now.ToString("dd/MM/yyyy HH:mm  ")';
+        if (nomeCompletoArmazenado) 
+            document.getElementById('nome-usuario').textContent = `Bem-vindo, ${nomeCompletoArmazenado}!`;
+        document.getElementById('nome-usuario-footer').textContent = `Logado como, ${nomeCompletoArmazenado} → operando em: ${dataAtual}`;
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/NotificaSino.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

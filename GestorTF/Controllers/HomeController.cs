@@ -41,8 +41,7 @@ namespace GestorTF.Controllers
             {
                 return RedirectToAction("Login", "Account"); // Redireciona caso o usuário não seja encontrado
             }
-
-            ViewBag.UserName = userName; // Passa o nome do usuário para a View
+            ViewData["NomeCompleto"] = userName;
             return View();
         }
     }

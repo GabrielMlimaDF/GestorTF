@@ -36,6 +36,11 @@ builder.Services.AddAuthentication(options =>
 {
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/Account/Logout";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.SlidingExpiration = true;
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
 })
 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
 {
@@ -64,11 +69,13 @@ app.UseSwaggerUI(); // Interface do Swagger
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
+    app.UseSwagger();  // Gera o Swagger
+    app.UseSwaggerUI(); // Interface do Swagger
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+//Forçar https
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

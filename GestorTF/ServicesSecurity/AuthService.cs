@@ -68,6 +68,7 @@ namespace GestorTF.ServicesSecurity
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var token = new JwtSecurityToken(
+
                 issuer: jwtSettings["Issuer"],
                 audience: jwtSettings["Audience"],
                 claims: claims,
