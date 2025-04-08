@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GestorTF.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/icofont/icofont.min.css">
 </head>
 <body>
     <header>
@@ -55,17 +56,18 @@
     </footer>
     <script>
         var nomeCompleto = '@ViewData["NomeCompleto"]';
-        if (nomeCompleto) 
+        if (nomeCompleto)
                      localStorage.setItem('NomeCompleto', nomeCompleto);
          const nomeCompletoArmazenado = localStorage.getItem('NomeCompleto');
          var dataAtual = '@DateTime.Now.ToString("dd/MM/yyyy HH:mm  ")';
-        if (nomeCompletoArmazenado) 
+        if (nomeCompletoArmazenado)
             document.getElementById('nome-usuario').textContent = `Bem-vindo, ${nomeCompletoArmazenado}!`;
         document.getElementById('nome-usuario-footer').textContent = `Logado como, ${nomeCompletoArmazenado} → operando em: ${dataAtual}`;
     </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/ControllerJs/ControllerJsPages.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

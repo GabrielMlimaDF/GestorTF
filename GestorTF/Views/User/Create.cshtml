@@ -1,9 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    
-    var username = ViewData["Username"] as string;
+﻿<div class="container mt-5" style="max-width: 600px;">
+    <!-- Bloco 1: Informações Pessoais -->
+    <div class="border rounded-3 mb-4">
+        <div class="color-icons d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+            <i class="icofont-duotone icofont-add-users icofont-2x"></i>
+            <strong>Informações pessoais</strong>
+        </div>
+        <div class="p-3">
+            <div class="form-group-custom">
+                <input type="text" id="name" name="name" placeholder=" " required />
+                <label for="name">Nome completo</label>
+            </div>
 
-}
-<h1>Testes de rota</h1>
+            <div class="form-group-custom">
+                <input type="email" id="email" name="email" placeholder=" " required />
+                <label for="email">E-mail</label>
+            </div>
+        </div>
+    </div>
+        <!-- Bloco 2: Credenciais -->
+    <div class="border rounded-3 mb-4">
+        <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+            <i class="bi bi-lock-fill text-purple"></i>
+            <strong>Credenciais</strong>
+        </div>
+        <div class="p-3">
+            <div class="form-group-custom">
+                <input type="password" id="password" name="password" placeholder=" " required />
+                <label for="password">Senha</label>
+            </div>
+
+            <div class="form-group-custom">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder=" " required />
+                <label for="confirmPassword">Confirmar Senha</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão -->
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary px-4 py-2 rounded-3">Salvar</button>
+    </div>
+</div>
