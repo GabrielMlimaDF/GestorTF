@@ -1,43 +1,73 @@
-﻿<div class="container mt-5" style="max-width: 600px;">
-    <!-- Bloco 1: Informações Pessoais -->
-    <div class="border rounded-3 mb-4">
-        <div class="color-icons d-flex align-items-center gap-2 px-3 py-2 border-bottom">
-            <i class="icofont-duotone icofont-add-users icofont-2x"></i>
-            <strong>Informações pessoais</strong>
-        </div>
-        <div class="p-3">
-            <div class="form-group-custom">
-                <input type="text" id="name" name="name" placeholder=" " required />
-                <label for="name">Nome completo</label>
+﻿<div class="container-create">
+    <div class="box-create small-create border rounded-3">
+        <div class="menu">
+            <div class="menu-item active" id="menu-bl1">
+                <i class="icofont-duotone icofont-privacy icofont-2"></i>
+                <strong>Informações Pessoais</strong>
             </div>
-
-            <div class="form-group-custom">
-                <input type="email" id="email" name="email" placeholder=" " required />
-                <label for="email">E-mail</label>
+            <div class="menu-item" id="menu-bl2">
+                <i class="icofont-duotone icofont-access-levels icofont-2"></i>
+                <strong>Segurança</strong>
+            </div>
+            <div class="menu-item" id="menu-bl3">
+                <i class="icofont-duotone icofont-shieldicofont-2"></i>
+                <strong>Niveis de acesso</strong>
             </div>
         </div>
     </div>
+    <div class="box-create large-create">
+        <!-- Bloco 1 -->
+        <div id="bl1" class="border rounded-3 mb-4">
+            <div class="color-icons d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+                <i class="icofont-duotone icofont-vcard icofont-2x text-purple"></i>
+                <strong>Informações pessoais</strong>
+            </div>
+            <div class="p-3">
+                <div class="form-group-custom">
+                    <input type="text" id="name" name="name" placeholder=" " required />
+                    <label for="name">Nome completo</label>
+                </div>
+
+                <div class="form-group-custom">
+                    <input type="email" id="email" name="email" placeholder=" " required />
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn-submit-novo">Salvar</button>
+                </div>
+            </div>
+        </div>
         <!-- Bloco 2: Credenciais -->
-    <div class="border rounded-3 mb-4">
-        <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom">
-            <i class="bi bi-lock-fill text-purple"></i>
-            <strong>Credenciais</strong>
-        </div>
-        <div class="p-3">
-            <div class="form-group-custom">
-                <input type="password" id="password" name="password" placeholder=" " required />
-                <label for="password">Senha</label>
+        <div id="bl2" class="border rounded-3 mb-4" style="display: none;">
+            <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+                <i class="icofont-duotone icofont-access-levels icofont-2x text-purple"></i>
+                <strong>Segurança</strong>
             </div>
+            <div class="p-3">
+                <div class="form-group-custom">
+                    <input type="password" id="password" name="password" placeholder=" " required />
+                    <label for="password">Senha</label>
+                </div>
 
-            <div class="form-group-custom">
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder=" " required />
-                <label for="confirmPassword">Confirmar Senha</label>
+                <div class="form-group-custom">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder=" " required />
+                    <label for="confirmPassword">Confirmar Senha</label>
+                </div>
             </div>
         </div>
-    </div>
+        <!-- Bloco 3: Niveis de acesso-->
+        <div id="bl3" class="border rounded-3 mb-4" style="display: none;">
+            <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+                <i class="icofont-duotone icofont-access-levels icofont-2x text-purple"></i>
+                <strong>Níveis de acesso</strong>
+            </div>
+            <div class="p-3">
+                <div class="form-group-custom">
+                    <input type="password" id="password" name="password" placeholder=" " required />
+                    <label for="password">Senha</label>
+                </div>
 
-    <!-- Botão -->
-    <div class="text-end">
-        <button type="submit" class="btn btn-primary px-4 py-2 rounded-3">Salvar</button>
+            </div>
+        </div>
     </div>
 </div>

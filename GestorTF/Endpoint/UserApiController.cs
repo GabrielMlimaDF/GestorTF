@@ -1,5 +1,5 @@
-﻿using GestorTF.Models;
-using GestorTF.Models.ViewModels;
+﻿using GestorTF.Models.ViewModels;
+using GestorTF.Models.ViewModels.UserViewModel;
 using GestorTF.Services;
 using GestorTF.ServicesSecurity;
 using GestoTF2.Data;

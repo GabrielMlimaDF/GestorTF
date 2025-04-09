@@ -1,5 +1,6 @@
 @import "ModPersons/Header-nav.css";
 @import "ModPersons/MenuAcessoRapido.css";
+@import "ModPersons/CreateUserPage.css";
 
 html {
     font-size: 14px;
@@ -11,9 +12,25 @@ html {
     }
 }
 /*Personalizados*/
-.color-icons {
-    color: #673de6 !important;
+.btn-submit-novo {
+    background-color: #6f42c1; 
+    color: white;
+    font-size: 16px;
+    font-weight: bold; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
+
+    .btn-submit-novo:hover {
+        background-color: #5a2ea6; 
+    }
+
+    .btn-submit-novo:active {
+        background-color: #4b1e8c; 
+    }
 .form-group-custom {
     position: relative;
     margin-bottom: 1.5rem;

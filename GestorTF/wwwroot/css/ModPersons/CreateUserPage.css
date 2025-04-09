@@ -1,1 +1,57 @@
-﻿
+﻿/* Estilo do contêiner que irá envolver os elementos */
+.container-create {
+    display: flex;
+flex-wrap:wrap;
+    width: 100%; /* Garantir que ocupe toda a largura da tela */
+    height: 100%; /* Para que ocupe a altura toda da janela */
+    margin-top:80px;
+    gap:25px;
+}
+
+.large-create {
+    width: 60%; /* A caixa maior ocupará 70% da largura */
+    height: 100%; /* A altura será 100% da altura da tela */
+
+}
+
+.small-create {
+    width: 25%; /* A caixa menor ocupará 25% da largura */
+    height: 100%; /* A altura será 100% da altura da tela */
+}
+
+/* Estilo para o contêiner do menu */
+.menu-container {
+    width: 250px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Estilo para cada item do menu */
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    gap:6px;
+}
+
+    .menu-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .menu-item.active {
+        background-color: #f5e6ff;
+        color: #6a2fff;
+    }
+
+    .menu-item .icon {
+        margin-right: 10px;
+    }
+
+    .menu-item .text {
+        font-size: 14px;
+    }

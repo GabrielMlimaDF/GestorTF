@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GestorTF.Models
+namespace GestorTF.Models.ViewModels.UserViewModel
 {
     public class UserRegisterDto
     {
