@@ -1,3 +1,4 @@
+using GestorTF.Repository;
 using GestorTF.Services;
 using GestorTF.ServicesSecurity;
 using GestoTF2.Data;
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<ContextApp>(op => op.UseSqlServer(connectionString
 builder.Services.AddScoped<AuthService>(); // Registra o AuthService
 builder.Services.AddScoped<ContextApp>();   // Registra o ContextApp (DbContext)
 builder.Services.AddScoped<UserServices>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 //suprimir modelstate
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {

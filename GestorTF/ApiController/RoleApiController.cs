@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace GestorTF.EndPointsTester
+namespace GestorTF.ApiController
 {
     [ApiController]
     public class RoleApiController : ControllerBase
