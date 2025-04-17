@@ -17,7 +17,7 @@ namespace GestorTF.ApiController
         private readonly AuthService _authService;
         private readonly IUserRepository _userRepository;
 
-        public UserApiController(AuthService authService, UserServices service, ContextApp context, IUserRepository userRepository)
+        public UserApiController(AuthService authService, IUserRepository userRepository)
         {
             _authService = authService;
             _userRepository = userRepository;
