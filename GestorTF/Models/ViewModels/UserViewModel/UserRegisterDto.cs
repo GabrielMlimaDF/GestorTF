@@ -16,6 +16,10 @@ namespace GestorTF.Models.ViewModels.UserViewModel
         [MinLength(6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
         public string Password { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "A confirmação de senha é obrigatória.")]
+        [MinLength(6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
+        public string ConfirmPassword { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Nível de acesso é obrigatório.")]
         [Range(1, 2, ErrorMessage = "O ID da Role deve ser um número válido.")]
         public int RoleId { get; set; } // Role associada ao usuário

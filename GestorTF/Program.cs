@@ -59,7 +59,6 @@ builder.Services.AddAuthentication(options =>
 });
 //
 builder.Services.AddAuthorization();
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 // Adiciona o Swagger
 builder.Services.AddEndpointsApiExplorer(); // Necessário para o Swagger
@@ -79,6 +78,7 @@ if (!app.Environment.IsDevelopment())
 }
 //Forçar https
 app.UseHttpsRedirection();
+//wwwroot
 app.UseStaticFiles();
 
 app.UseRouting();

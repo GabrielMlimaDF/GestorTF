@@ -1,17 +1,16 @@
 ﻿/* Estilo do contêiner que irá envolver os elementos */
 .container-create {
     display: flex;
-flex-wrap:wrap;
+    flex-wrap: wrap;
     width: 100%; /* Garantir que ocupe toda a largura da tela */
     height: 100%; /* Para que ocupe a altura toda da janela */
-    margin-top:80px;
-    gap:25px;
+    margin-top: 80px;
+    gap: 25px;
 }
 
 .large-create {
     width: 60%; /* A caixa maior ocupará 70% da largura */
     height: 100%; /* A altura será 100% da altura da tela */
-
 }
 
 .small-create {
@@ -36,7 +35,7 @@ flex-wrap:wrap;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    gap:6px;
+    gap: 6px;
 }
 
     .menu-item:hover {
@@ -54,4 +53,22 @@ flex-wrap:wrap;
 
     .menu-item .text {
         font-size: 14px;
+    }
+/*Mostrar senha*/
+.senha-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* espaço entre os elementos */
+}
+
+    .senha-container input[type="password"],
+    .senha-container input[type="text"] {
+        padding: 6px;
+        font-size: 16px;
+    }
+
+    .senha-container label {
+        font-size: 14px;
+        cursor: pointer;
     }

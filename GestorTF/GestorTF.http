@@ -1,0 +1,5 @@
+﻿@GestorTF_HostAddress = https://localhost:7025
+
+GET {{GestorTF_HostAddress}}/account/login/{id}
+
+###
