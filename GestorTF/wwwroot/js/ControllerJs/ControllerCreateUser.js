@@ -2,13 +2,14 @@
     const name = document.getElementById('Name').value;
     const email = document.getElementById('Email').value;
     const password = document.getElementById('Password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
     let RoleId = document.getElementById("flexCheckUsuario").checked
         ? 2
         : document.getElementById("flexCheckDefaultAdmin").checked
             ? 1
             : null;
     debugger;
-    const data = { name, email, password, RoleId };
+    const data = { name, email, password, RoleId, confirmPassword };
 
     try {
         const response = await fetch('/v1/user/registers', {

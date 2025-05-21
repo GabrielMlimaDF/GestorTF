@@ -5,6 +5,7 @@ using GestorTF.Services;
 using GestorTF.ServicesSecurity;
 using GestoTF2.Data;
 using GestoTF2.Models;
+using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +30,13 @@ namespace GestorTF.ApiController
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            if (model.ConfirmPassword != model.Password)
+            {
+                return StatusCode(400, new ResultViewModel<string>("05x02 - As senhas informadas não coincidem."));
+            }
             var existEmail = await _userRepository.GetUserByEmailAsync(model.Email);
             if (existEmail)
-                return StatusCode(500, new ResultViewModel<string>("05x02 - Verifique o email e senha digitados. Se já tem uma conta conosco, tente recuperar a senha."));
+                return StatusCode(400, new ResultViewModel<string>("05x02 - Verifique o email e senha digitados. Se já tem uma conta conosco, tente recuperar a senha."));
             try
             {
                 var (hashedPassword, salt) = _authService.HashPassword(model.Password);
