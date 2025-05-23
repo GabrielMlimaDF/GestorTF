@@ -1,4 +1,5 @@
-﻿document.getElementById('btnRegister').addEventListener('click', async function () {
+﻿import { exibirErro } from './VerifyPasswordConfirm.js'; // ajuste o caminho se necessário
+document.getElementById('btnRegister').addEventListener('click', async function () {
     const name = document.getElementById('Name').value;
     const email = document.getElementById('Email').value;
     const password = document.getElementById('Password').value;
@@ -25,7 +26,8 @@
             document.getElementById('resultMessage').innerText = 'Usuário cadastrado com sucesso!';
         } else {
             const error = await response.json();
-            document.getElementById('resultMessage').innerText = `Erro: ${error.message || response.status}`;
+            exibirErro(error)
+            /* document.getElementById('erroSenha').innerText = `Erro: ${error.message || response.status}`;*/
         }
     } catch (err) {
         document.getElementById('resultMessage').innerText = 'Erro ao tentar cadastrar usuário.';

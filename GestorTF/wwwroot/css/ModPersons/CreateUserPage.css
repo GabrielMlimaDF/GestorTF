@@ -81,4 +81,9 @@
     color: red;
     font-size: 14px;
     margin-top: 2px;
+    display: none;
 }
+
+    .mensagem-erro.isactive {
+        display: block;
+    }

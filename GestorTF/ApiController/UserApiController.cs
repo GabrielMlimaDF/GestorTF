@@ -47,7 +47,7 @@ namespace GestorTF.ApiController
                     Password = hashedPassword,
                     Salt = salt,
                     CreateAt = DateTime.UtcNow,
-                    RoleId = model.RoleId
+                    RoleId = model.RoleId ?? 1
                 };
                 await _userRepository.CreateUserAsync(user);
                 return Created($"/v1/user/registers/{user.Id}", $"Usuario: {user.Email} criado com sucesso.");

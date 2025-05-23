@@ -1,5 +1,6 @@
-﻿<div class="container-create">
-    <div class="box-create small-create border rounded-3">
+﻿
+<div class="container-create">
+         <div class="box-create small-create border rounded-3">
         <div class="menu">
             <div class="menu-item active" id="menu-bl1">
                 <i class="icofont-duotone icofont-privacy icofont-2"></i>
@@ -49,7 +50,7 @@
                 <div class="form-group-custom">
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder=" " required />
                     <label for="confirmPassword">Confirmar Senha</label>
-                    <div id="erroSenha" class="mensagem-erro" style="display: none;">As senhas não coincidem.</div>
+                    <div id="erroSenha" class="mensagem-erro"></div>
                 </div>
                 <div class="senha-container">
                     <label>
@@ -90,9 +91,10 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
     <script src="~/js/CheckboxNivelAcessoUser.js"></script>
     <script src="~/js/HandlerMenuCreateUser.js"></script>
-    <script src="~/js/ControllerJs/ControllerCreateUser.js"></script>
     <script src="~/js/ShowPassword.js"></script>
+    <script type="module" src="~/js/ControllerJs/ControllerCreateUser.js"></script>
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/css/icofont/icofont.min.css">
 </head>
 <body>
+
     <header>
         <nav class=" height-nav-header navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-3 h">
             <div class="container">
@@ -23,7 +24,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Example single danger button -->
-                <div class="btn-group">
+                <div class="btn-group position-relative">
                     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <span id="nome-usuario">👤</span>
                     </button>
@@ -34,15 +35,30 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Sair da conta</a></li>
                     </ul>
+                    <div class="notification-box">
+                        <div class="notification-header">
+                            <span class="notification-icon">ℹ️</span>
+                            <span class="notification-title">R$1.134,80 credit remaining</span>
+                            <button class="close-button">&times;</button>
+                        </div>
+                        <div class="notification-body">
+                            Subscription 'Azure subscription 1' has a remaining credit of R$1.134,80.
+                        </div>
+                        <div class="notification-footer">
+                            <a href="#">Upgrade to a Pay-As-You-Go subscription.</a>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
+
             @RenderBody()
         </main>
-
 
     </div>
 
