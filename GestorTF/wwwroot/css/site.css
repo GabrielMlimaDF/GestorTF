@@ -102,15 +102,16 @@ a {
 /*// div param mostrar notificações*/
 .notification-box {
     width: 360px;
-        border: 1px solid #ccc;
+    border: 1px solid #ccc;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     font-family: Segoe UI, sans-serif;
     padding: 12px 16px;
     position: absolute;
-    top:100%;
+    top: 100%;
     border-radius: 2px;
     z-index: 1000;
+    display: none;
 }
 
 .notification-header {
@@ -119,17 +120,13 @@ a {
     justify-content: space-between;
 }
 
-.notification-icon {
-    color: #0078d4;
-    font-size: 16px;
-    margin-right: 8px;
-}
-
 .notification-title {
     color: #0078d4;
     font-weight: 600;
     flex-grow: 1;
+    padding-left: 8px;
 }
+
 
 .close-button {
     background: none;
@@ -158,3 +155,18 @@ a {
         .notification-footer a:hover {
             text-decoration: underline;
         }
+
+.erro {
+    border: 2px solid red;
+}
+
+.mensagem-erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+    display: none;
+}
+
+.isActive {
+    display: block;
+}

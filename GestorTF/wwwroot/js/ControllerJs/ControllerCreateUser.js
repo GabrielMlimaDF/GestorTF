@@ -1,4 +1,4 @@
-﻿import { exibirErro } from './VerifyPasswordConfirm.js'; // ajuste o caminho se necessário
+﻿import { exibirErro } from './NotificationBox.js'; // ajuste o caminho se necessário
 document.getElementById('btnRegister').addEventListener('click', async function () {
     const name = document.getElementById('Name').value;
     const email = document.getElementById('Email').value;
@@ -21,13 +21,13 @@ document.getElementById('btnRegister').addEventListener('click', async function 
             credentials: 'include', // IMPORTANTE para enviar os cookies com JWT
             body: JSON.stringify(data)
         });
-
+        debugger
         if (response.ok) {
-            document.getElementById('resultMessage').innerText = 'Usuário cadastrado com sucesso!';
+            const sucess = await response.json();
+            exibirErro(sucess.messageSucess)
         } else {
             const error = await response.json();
             exibirErro(error)
-            /* document.getElementById('erroSenha').innerText = `Erro: ${error.message || response.status}`;*/
         }
     } catch (err) {
         document.getElementById('resultMessage').innerText = 'Erro ao tentar cadastrar usuário.';

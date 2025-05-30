@@ -50,7 +50,7 @@ namespace GestorTF.ApiController
                     RoleId = model.RoleId ?? 1
                 };
                 await _userRepository.CreateUserAsync(user);
-                return Created($"/v1/user/registers/{user.Id}", $"Usuario: {user.Email} criado com sucesso.");
+                return Created($"/v1/user/registers/{user.Id}", new { messageSucess = $"Usuario: {user.Email} criado com sucesso." });
             }
             catch (Exception)
             {
