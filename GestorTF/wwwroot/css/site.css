@@ -127,7 +127,6 @@ a {
     padding-left: 8px;
 }
 
-
 .close-button {
     background: none;
     border: none;
@@ -157,7 +156,9 @@ a {
         }
 
 .erro {
-    border: 2px solid red;
+}
+
+.sucesso {
 }
 
 .mensagem-erro {

@@ -10,6 +10,12 @@ namespace GestorTF.Models.ViewModels
             Errors = errors;
         }
 
+        public ResultViewModel(T data, string messageSucess)
+        {
+            Data = data;
+            MessageSucess = messageSucess;
+        }
+
         public ResultViewModel(T data)
         {
             Data = data;
@@ -27,5 +33,6 @@ namespace GestorTF.Models.ViewModels
 
         public T Data { get; private set; }
         public List<string> Errors { get; private set; } = new();
+        public string MessageSucess { get; set; }
     }
 }

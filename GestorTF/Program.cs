@@ -1,5 +1,5 @@
+using GestorTF.Configuration;
 using GestorTF.Repository;
-using GestorTF.Services;
 using GestorTF.ServicesSecurity;
 using GestoTF2.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -12,12 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 //CSRF
 
 //
-var connectionString = builder.Configuration.GetConnectionString("Banco");
-builder.Services.AddDbContext<ContextApp>(op => op.UseSqlServer(connectionString));
+builder.AddConfiguration();
+builder.Services.AddDbContext<ContextApp>(op => op.UseSqlServer(AppConfiguration.ConnectionString));
 // Registra os serviços no container de injeção de dependência
 builder.Services.AddScoped<AuthService>(); // Registra o AuthService
 builder.Services.AddScoped<ContextApp>();   // Registra o ContextApp (DbContext)
-builder.Services.AddScoped<UserServices>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 //suprimir modelstate
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>

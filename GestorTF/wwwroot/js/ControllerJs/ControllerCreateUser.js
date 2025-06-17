@@ -1,4 +1,4 @@
-﻿import { exibirErro } from './NotificationBox.js'; // ajuste o caminho se necessário
+﻿import { exibirNotificacao } from './NotificationBox.js'; // ajuste o caminho se necessário
 document.getElementById('btnRegister').addEventListener('click', async function () {
     const name = document.getElementById('Name').value;
     const email = document.getElementById('Email').value;
@@ -23,13 +23,34 @@ document.getElementById('btnRegister').addEventListener('click', async function 
         });
         debugger
         if (response.ok) {
-            const sucess = await response.json();
-            exibirErro(sucess.messageSucess)
+            const sucesso = await response.json();
+            exibirNotificacao({
+                tipo: 'sucesso',
+                titulo: 'Tudo certo. Parabéns!',
+                mensagens: sucesso.messageSucess || 'Operação realizada com sucesso.'
+            });
         } else {
-            const error = await response.json();
-            exibirErro(error)
+            const erro = await response.json();
+            exibirNotificacao({
+                tipo: 'erro',
+                titulo: 'Ocorreu um erro!',
+                mensagens: extrairMensagensDeErro(erro) // função auxiliar opcional
+            });
         }
     } catch (err) {
         document.getElementById('resultMessage').innerText = 'Erro ao tentar cadastrar usuário.';
     }
 });
+
+function extrairMensagensDeErro(errosPorCampo) {
+    const mensagens = [];
+    for (const campo in errosPorCampo) {
+        const mensagensDoCampo = errosPorCampo[campo];
+        if (Array.isArray(mensagensDoCampo)) {
+            mensagens.push(...mensagensDoCampo);
+        } else if (typeof mensagensDoCampo === 'string') {
+            mensagens.push(mensagensDoCampo);
+        }
+    }
+    return mensagens;
+}

@@ -1,14 +1,10 @@
 ﻿using GestorTF.Models.ViewModels;
 using GestorTF.Models.ViewModels.UserViewModel;
 using GestorTF.Repository;
-using GestorTF.Services;
 using GestorTF.ServicesSecurity;
-using GestoTF2.Data;
 using GestoTF2.Models;
-using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GestorTF.ApiController
 {
@@ -50,7 +46,8 @@ namespace GestorTF.ApiController
                     RoleId = model.RoleId ?? 1
                 };
                 await _userRepository.CreateUserAsync(user);
-                return Created($"/v1/user/registers/{user.Id}", new { messageSucess = $"Usuario: {user.Email} criado com sucesso." });
+
+                return Created($"/v1/user/registers/{user.Id}", new ResultViewModel<User>(user, "Usuario criado com sucesso!"));
             }
             catch (Exception)
             {
