@@ -14,9 +14,11 @@ namespace GestorTF.Models
         [StringLength(14)]
         public string Cnpj { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string Email { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string Telefone { get; set; }
 

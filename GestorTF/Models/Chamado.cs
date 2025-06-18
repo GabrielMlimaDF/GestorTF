@@ -13,8 +13,10 @@ namespace GestorTF.Models
         [Required]
         public string Descricao { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataAbertura { get; set; } = DateTime.UtcNow;
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataFechamento { get; set; }
 
         public bool Aberto { get; set; } = true;
