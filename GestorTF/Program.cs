@@ -18,6 +18,7 @@ builder.Services.AddDbContext<ContextApp>(op => op.UseSqlServer(AppConfiguration
 builder.Services.AddScoped<AuthService>(); // Registra o AuthService
 builder.Services.AddScoped<ContextApp>();   // Registra o ContextApp (DbContext)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 //suprimir modelstate
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {

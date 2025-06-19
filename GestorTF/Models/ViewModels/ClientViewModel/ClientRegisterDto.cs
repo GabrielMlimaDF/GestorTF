@@ -23,6 +23,5 @@ namespace GestorTF.Models.ViewModels.ClientViewModel
         [StringLength(20)]
         public string Telefone { get; set; }
 
-        public bool? Ativo { get; set; } = true;
     }
 }
