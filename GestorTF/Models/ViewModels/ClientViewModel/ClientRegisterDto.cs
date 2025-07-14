@@ -10,7 +10,7 @@ namespace GestorTF.Models.ViewModels.ClientViewModel
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CNPJ é obrigatorio.")]
-        [StringLength(14)]
+        [StringLength(14, ErrorMessage = "CNPJ fora do padrão.")]
         [Cnpj(ErrorMessage = "CNPJ informado não é válido.")]
         public string Cnpj { get; set; }
 
@@ -22,6 +22,8 @@ namespace GestorTF.Models.ViewModels.ClientViewModel
         [Required(ErrorMessage = "Telefone é obrigatório.")]
         [StringLength(20)]
         public string Telefone { get; set; }
+
+        public bool Ativo { get; set; } = true;
 
     }
 }

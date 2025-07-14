@@ -4,6 +4,8 @@ namespace GestorTF.Repository
 {
     public interface IClientRepository
     {
-        Task<Cliente> CreateClientAsync(Cliente cliente);
+        Task<Cliente?> CreateClientAsync(Cliente client);
+        Task<Cliente?> GetByIdAsync(Guid id, Guid userId);
+        Task UpdateAsync(Cliente client);
     }
 }
