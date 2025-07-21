@@ -1,30 +1,29 @@
-﻿<div class="titulo-header">ACESSO RÁPIDO</div>
-<div class="grid-header">
-    <a asp-controller="User" asp-action="Create">
+﻿<div class="grid-header">
+    <a id="btnListar">
         <div class="item-header">
             <div class="icon">
                 <i class="icofont-duotone icofont-users icofont-2x text-purple"></i>
             </div>
-            Criar Usuário
+            Listar Todos
         </div>
     </a>
-    <a asp-controller="Client" asp-action="Index">
+    <a id="">
         <div class="item-header">
             <div class="icon">
                 <i class="icofont-duotone icofont-add-users icofont-2x text-purple"></i>
             </div>
-            Novo Cliente
+            Editar Cliente
         </div>
     </a>
-    <a asp-controller="User" asp-action="Create">
+    <a id="">
         <div class="item-header">
             <div class="icon">
                 <i class="icofont-duotone icofont-components icofont-2x text-purple"></i>
             </div>
-            Ver Chamados
+            Excluir
         </div>
-    </a> 
-    <a asp-controller="User" asp-action="Create">
+    </a>
+    <a id="">
         <div class="item-header">
             <div class="icon">
                 <i class="icofont-duotone icofont-file-add icofont-2x text-purple"></i>
@@ -32,4 +31,19 @@
             Abrir Chamado
         </div>
     </a>
+    <a id="">
+        <div class="item-header">
+            <div class="icon">
+                <i class="icofont-duotone icofont-file-add icofont-2x text-purple"></i>
+            </div>
+            Cadastrar Novo
+        </div>
+    </a>
 </div>
+<div id="contentPartial">@await Html.PartialAsync("_CreateClient")</div>
+
+@section scripts {
+    <script src="~/js/ControllerJs/ClientComponent.js"></script>
+    <script type="module" src="~/js/ControllerJs/CreateClient.js"></script>
+    <script src="~/js/Msc.js"></script>
+}

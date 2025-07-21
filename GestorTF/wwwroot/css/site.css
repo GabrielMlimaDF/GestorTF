@@ -171,3 +171,10 @@ a {
 .isActive {
     display: block;
 }
+.w-40 {
+    width: 40% !important;
+}
+
+.w-35 {
+    width: 35% !important;
+}

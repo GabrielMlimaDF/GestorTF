@@ -6,7 +6,7 @@ namespace GestorTF.Models.ViewModels.ClientViewModel
     public class ClientRegisterDto
     {
         [Required(ErrorMessage = "Nome é obrigatório.")]
-        [StringLength(300, MinimumLength = 5, ErrorMessage = "O nome deve ter entre 5 e 300 caracteres.")]
+        [StringLength(300, MinimumLength = 10, ErrorMessage = "O nome deve ter entre 5 e 300 caracteres.")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CNPJ é obrigatorio.")]

@@ -1,35 +1,4 @@
-﻿//const divErro = document.getElementById('notificationBox');
-//const divTitle = document.getElementById('notBoxTitle');
-//const errosList = document.getElementById('errosList');
-//const closeBox = document.getElementById('closeBox');
-//const iconBox = document.getElementById('iconBox');
-//export function exibirErro(errosPorCampo) {
-//    divErro.classList.add('isActive');
-//    let title = '';
-//    let mensagens = '';
-//    // Itera por todas as chaves (campos)
-//    for (const campo in errosPorCampo) {
-//        const mensagensDoCampo = errosPorCampo[campo];
-//        debugger
-//        // Garante que é um array antes de iterar
-//        if (Array.isArray(mensagensDoCampo)) {
-//            mensagensDoCampo.forEach(msg => {
-//                mensagens += `<p><strong> ${msg}</strong></p>`;
-//            });
-//            title = 'Verifique os erros!';
-//        }
-//    }
-//    debugger
-//    divTitle.innerHTML = title;
-//    errosList.innerHTML = mensagens;
-//}
-//function closeErro() {
-//    divErro.classList.remove('isActive');
-//    divTitle.innerHTML = '';
-//    errosList.innerHTML = '';
-//}
-//closeBox.addEventListener('click', closeErro);
-const divErro = document.getElementById('notificationBox');
+﻿const divErro = document.getElementById('notificationBox');
 const divTitle = document.getElementById('notBoxTitle');
 const errosList = document.getElementById('errosList');
 const closeBox = document.getElementById('closeBox');

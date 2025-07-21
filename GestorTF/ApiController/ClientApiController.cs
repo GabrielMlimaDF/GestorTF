@@ -2,9 +2,7 @@
 using GestorTF.Models.ViewModels;
 using GestorTF.Models.ViewModels.ClientViewModel;
 using GestorTF.Repository;
-using GestoTF2.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -24,10 +22,13 @@ namespace GestorTF.ApiController
         [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> RegisterClientAsync(ClientRegisterDto dto)
         {
-            Guid usuarioId = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+            Guid usuarioId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            var existEmail = await _clientRepository.GetClientByCnpjAsync(dto.Cnpj);
+            if (existEmail)
+                return StatusCode(400, new ResultViewModel<string>("05x02 - Verifique se o cadastro com o CNPJ informado já não existe."));
             try
             {
                 var client = new Cliente
@@ -79,7 +80,24 @@ namespace GestorTF.ApiController
             }
 
         }
+        //[HttpDelete("/v1/client/delete")]
+        //[Authorize(Roles = "Admin,User")]
+        //public async IActionResult DeleteClientAsync(Guid id)
+        //{
+        //}
+        [HttpGet("/v1/client/list")]
+        [Authorize(Roles = "Admin,User")]
+        public async Task<IActionResult> ListClientAsync()
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
 
+            var clientes = await _clientRepository.GetClientAllAsync(userId);
 
+            if (clientes == null || !clientes.Any())
+                return NoContent(); // 204
+
+            return Ok(clientes); // 200 + JSON
+
+        }
     }
 }
