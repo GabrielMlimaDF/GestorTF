@@ -1,0 +1,94 @@
+﻿.card-container-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin: 12px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.status-list-client {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+/* Pontinho */
+.status-dot-client {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-list-client.ativo {
+    background-color: #d1f7dc;
+    color: #1e7d3d;
+}
+
+.status-dot-client.ativo {
+    background-color: #2ecc71;
+}
+/* Inativo - vermelho */
+.status-list-client.inativo {
+    background-color: #ffe5e5;
+    color: #c0392b;
+}
+
+.status-dot-client.inativo {
+    background-color: #e74c3c;
+}
+
+.info-group-client {
+    display: flex;
+    flex-direction: column;
+    margin-right: 32px;
+}
+
+.info-label-client {
+    font-size: 13px;
+    color: #555;
+}
+
+.info-value-client {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+}
+
+.card-content-client {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 40px;
+    margin-left: 24px;
+}
+
+.menu-icon-client {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .card-container-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-content-client {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-left: 0;
+    }
+
+    .info-group-client {
+        margin-right: 0;
+    }
+}

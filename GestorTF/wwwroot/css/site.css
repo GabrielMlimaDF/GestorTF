@@ -1,6 +1,7 @@
 @import "ModPersons/Header-nav.css";
 @import "ModPersons/MenuAcessoRapido.css";
 @import "ModPersons/CreateUserPage.css";
+@import "ModPersons/ListClient.css";
 
 html {
     font-size: 14px;
@@ -171,6 +172,7 @@ a {
 .isActive {
     display: block;
 }
+
 .w-40 {
     width: 40% !important;
 }
